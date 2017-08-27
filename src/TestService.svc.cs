@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Runtime.Serialization.Json;
 using System.ServiceModel.Web;
@@ -10,64 +9,32 @@ namespace TestWcfService
 {
 	public class TestService : ITestService
 	{
-		public Stream GetUsers(string format)
-		{
-			if (format == null) format = "json";
-			switch (format.ToLower())
-			{
-				case "json":
-					return GetUsersJson();
-
-				case "csv":
-					return GetUsersCsv();
-
-				default:
-					return BadRequest("Invalid content format: " + format);
-			}
-		}
-
-		public Stream GetDepartments(string format)
+		public Stream Get(string item, string id, string format)
 		{
 			throw new NotImplementedException();
 		}
 
-		public Stream GetCompanies(string format)
+		public Stream Post(string item, string id, string format, Stream streamdata)
+		{
+			StreamReader reader = new StreamReader(streamdata);
+			string res = reader.ReadToEnd();
+			reader.Close();
+			reader.Dispose();
+			return ToStream("Received: " + res);
+		}
+
+		public Stream Put(string item, string id, string format, Stream streamdata)
+		{
+			StreamReader reader = new StreamReader(streamdata);
+			string res = reader.ReadToEnd();
+			reader.Close();
+			reader.Dispose();
+			return ToStream("Received: " + res);
+		}
+
+		public Stream Delete(string item, string id, string format)
 		{
 			throw new NotImplementedException();
-		}
-
-		public Stream GetUser(string username, string format)
-		{
-			throw new NotImplementedException();
-		}
-
-		public Stream AddUser(UserInfo user)
-		{
-			//DataImpl.Instance.CompaniesInfo.Add(user);
-			return ToStream("user \"{user.Name}\" added");
-		}
-
-		public Stream ChangeUser(UserInfo user)
-		{
-			//var userIndex = DataImpl.Instance.UsersInfo.FindIndex(x => x.Name == user.Name);
-
-			//if (userIndex == -1)
-			//	return ToStream($"user \"{user.Name}\" does not exist!");
-
-			//DataImpl.Instance.UsersInfo[userIndex] = user;
-
-			return ToStream("user changed");
-		}
-
-		public Stream DeleteUser(string username)
-		{
-			//var deletingUser = DataImpl.Instance.UsersInfo.FirstOrDefault(x=>x.Name == username);
-
-			//if (deletingUser == null)
-			//	return ToStream($"user \"{username}\" does not exist!");
-
-			//DataImpl.Instance.UsersInfo.Remove(deletingUser);
-			return ToStream("user deleted");
 		}
 
 		private static Stream ToStream(string data)
@@ -120,6 +87,5 @@ namespace TestWcfService
 			output.Seek(0, SeekOrigin.Begin);
 			return output;
 		}
-
 	}
 }

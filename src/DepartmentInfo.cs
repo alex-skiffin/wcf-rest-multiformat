@@ -7,6 +7,9 @@ namespace TestWcfService
 	public class DepartmentInfo
 	{
 		[DataMember]
+		public int Id { get; set; }
+
+		[DataMember]
 		public string DepartmentName { get; set; }
 
 		[DataMember]

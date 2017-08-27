@@ -7,6 +7,9 @@ namespace TestWcfService
 	public class UserInfo
 	{
 		[DataMember]
+		public int Id { get; set; }
+
+		[DataMember]
 		public string Name { get; set; }
 
 		[DataMember]

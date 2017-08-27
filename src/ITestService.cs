@@ -9,45 +9,31 @@ namespace TestWcfService
 	public interface ITestService
 	{
 		[OperationContract]
-		[WebInvoke(Method = "GET", UriTemplate = "users?format={format}")]
-		[ServiceKnownType(typeof(List<UserInfo>))]
+		[WebInvoke(Method = "GET", UriTemplate = "{item}/{id=0}/{format=json}")]
 		[ServiceKnownType(typeof(MemoryStream))]
-		Stream GetUsers(string format);
+		Stream Get(string item, string id, string format);
 
 		[OperationContract]
-		[WebInvoke(Method = "GET", UriTemplate = "departments?format={format}")]
-		[ServiceKnownType(typeof(List<DepartmentInfo>))]
+		[WebInvoke(Method = "POST",
+			ResponseFormat = WebMessageFormat.Json,
+			RequestFormat = WebMessageFormat.Json,
+			BodyStyle = WebMessageBodyStyle.WrappedRequest,
+			UriTemplate = "{item}/{id=0}/{format=json}")]
 		[ServiceKnownType(typeof(MemoryStream))]
-		Stream GetDepartments(string format);
+		Stream Post(string item, string id, string format, Stream json);
 
 		[OperationContract]
-		[WebInvoke(Method = "GET", UriTemplate = "companies?format={format}")]
-		[ServiceKnownType(typeof(List<CompanyInfo>))]
+		[WebInvoke(Method = "PUT",
+			ResponseFormat = WebMessageFormat.Json,
+			RequestFormat = WebMessageFormat.Json,
+			BodyStyle = WebMessageBodyStyle.WrappedRequest,
+			UriTemplate = "{item}/{id=0}/{format=json}")]
 		[ServiceKnownType(typeof(MemoryStream))]
-		Stream GetCompanies(string format);
+		Stream Put(string item, string id, string format, Stream json);
 
 		[OperationContract]
-		[WebInvoke(Method = "GET", UriTemplate = "user?format={format}&username={username}")]
-		[ServiceKnownType(typeof(UserInfo))]
+		[WebInvoke(Method = "DELETE", UriTemplate = "{item}/{id=0}/{format=json}")]
 		[ServiceKnownType(typeof(MemoryStream))]
-		Stream GetUser(string username, string format);
-
-		[OperationContract]
-		[WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, UriTemplate = "user")]
-		[ServiceKnownType(typeof(UserInfo))]
-		[ServiceKnownType(typeof(MemoryStream))]
-		Stream AddUser(UserInfo user);
-
-		[OperationContract]
-		[WebInvoke(Method = "PUT", RequestFormat = WebMessageFormat.Json, UriTemplate = "user")]
-		[ServiceKnownType(typeof(UserInfo))]
-		[ServiceKnownType(typeof(MemoryStream))]
-		Stream ChangeUser(UserInfo user);
-
-		[OperationContract]
-		[WebInvoke(Method = "DELETE", UriTemplate = "user?username={username}")]
-		[ServiceKnownType(typeof(UserInfo))]
-		[ServiceKnownType(typeof(MemoryStream))]
-		Stream DeleteUser(string username);
+		Stream Delete(string item, string id, string format);
 	}
 }
