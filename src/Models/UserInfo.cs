@@ -10,6 +10,9 @@ namespace TestWcfService.Models
 		public int Id { get; set; }
 
 		[DataMember]
+		public int DepartmentId { get; set; }
+
+		[DataMember]
 		public string Name { get; set; }
 
 		[DataMember]
@@ -17,8 +20,5 @@ namespace TestWcfService.Models
 
 		[DataMember]
 		public DateTime Birthday { get; set; }
-
-		[DataMember]
-		public int TimeStamp { get; set; }
 	}
 }

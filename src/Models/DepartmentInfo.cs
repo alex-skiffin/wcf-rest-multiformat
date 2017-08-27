@@ -10,12 +10,12 @@ namespace TestWcfService.Models
 		public int Id { get; set; }
 
 		[DataMember]
+		public int CompanyId { get; set; }
+
+		[DataMember]
 		public string DepartmentName { get; set; }
 
 		[DataMember]
 		public string Description { get; set; }
-
-		[DataMember]
-		public List<UserInfo> Users{ get; set; }
 	}
 }

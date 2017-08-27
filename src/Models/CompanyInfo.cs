@@ -14,8 +14,5 @@ namespace TestWcfService.Models
 
 		[DataMember]
 		public string Description { get; set; }
-
-		[DataMember]
-		public List<DepartmentInfo> Departments { get; set; }
 	}
 }
