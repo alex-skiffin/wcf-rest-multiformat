@@ -9,11 +9,11 @@ namespace TestWcfService.Cruds
 			switch(item)
 			{
 				case "user":
-					break;
+					return new UserCrud();
 				case "department":
-					break;
+					return new DepartmentCrud();
 				case "company":
-					break;
+					return new CompanyCrud();
 				default:
 					break;
 			}
