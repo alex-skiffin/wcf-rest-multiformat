@@ -1,21 +1,21 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace TestWcfService
+namespace TestWcfService.Models
 {
 	[DataContract]
-	public class DepartmentInfo
+	public class CompanyInfo
 	{
 		[DataMember]
 		public int Id { get; set; }
 
 		[DataMember]
-		public string DepartmentName { get; set; }
+		public string CompanyName { get; set; }
 
 		[DataMember]
 		public string Description { get; set; }
 
 		[DataMember]
-		public List<UserInfo> Users{ get; set; }
+		public List<DepartmentInfo> Departments { get; set; }
 	}
 }

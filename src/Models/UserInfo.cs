@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace TestWcfService
+namespace TestWcfService.Models
 {
 	[DataContract]
 	public class UserInfo
