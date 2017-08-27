@@ -5,22 +5,22 @@ namespace TestWcfService.Cruds
 
 	public class UserCrud : DataCrudFactory
 	{
-		public override string Delete(string id)
+		public override string Delete(int id)
 		{
 			throw new NotImplementedException();
 		}
 
-		public override string Get(string id)
+		public override string Get(int id)
 		{
 			throw new NotImplementedException();
 		}
 
-		public override string Post(string id, string json)
+		public override string Post(int id, string json)
 		{
 			throw new NotImplementedException();
 		}
 
-		public override string Put(string id, string json)
+		public override string Put(int id, string json)
 		{
 			throw new NotImplementedException();
 		}

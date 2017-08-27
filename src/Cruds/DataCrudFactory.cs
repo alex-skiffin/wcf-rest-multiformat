@@ -21,9 +21,9 @@ namespace TestWcfService.Cruds
 			throw new ArgumentException("Некорректный запрос");
 		}
 
-		public abstract string Get(string id);
-		public abstract string Post(string id, string json);
-		public abstract string Put(string id, string json);
-		public abstract string Delete(string id);
+		public abstract string Get(int id);
+		public abstract string Post(int id, string json);
+		public abstract string Put(int id, string json);
+		public abstract string Delete(int id);
 	}
 }
