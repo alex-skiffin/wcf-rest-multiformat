@@ -27,12 +27,12 @@ namespace TestWcfService
 			ResponseFormat = WebMessageFormat.Json,
 			RequestFormat = WebMessageFormat.Json,
 			BodyStyle = WebMessageBodyStyle.WrappedRequest,
-			UriTemplate = "{item}/{id=0}/{format=json}")]
+			UriTemplate = "{item}/{id=0}")]
 		[ServiceKnownType(typeof(MemoryStream))]
 		Stream Put(string item, string id, Stream json);
 
 		[OperationContract]
-		[WebInvoke(Method = "DELETE", UriTemplate = "{item}/{id=0}/{format=json}")]
+		[WebInvoke(Method = "DELETE", UriTemplate = "{item}/{id=0}")]
 		[ServiceKnownType(typeof(MemoryStream))]
 		Stream Delete(string item, string id);
 	}
